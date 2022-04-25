@@ -32,6 +32,7 @@ public class HashTable_ {
         /**
          * HashTable是线程不安全的 键与值不允许为null
          * 1.底层是数组HashMap$Entry[] 初始化大小为11 threshold为8=11*0.75 达到临界值8进行扩容
+         * 扩容为原来的2n+1倍
          * 2.新增：
          *  private void addEntry(int hash, K key, V value, int index) {
          *         modCount++;

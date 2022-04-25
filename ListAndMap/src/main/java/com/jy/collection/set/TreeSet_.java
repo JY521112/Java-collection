@@ -18,6 +18,7 @@ public class TreeSet_ {
         }
         treeSet.add("Jack");
         treeSet.add("Rose");
+        treeSet.add("Rose");
         treeSet.add("Tom");
         treeSet.add("A");
         System.out.println("treeSet = " + treeSet);

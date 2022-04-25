@@ -1,6 +1,8 @@
 package com.jy.collection.map;
 
+
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * @author JIA.YU
@@ -10,12 +12,17 @@ import java.util.HashMap;
 public class HashMap_ {
     public static void main(String[] args) {
         HashMap hashMap = new HashMap();
+
+        for (int i = 0; i < 18; i++) {
+
+            hashMap.put(new A(i),i);
+        }
         hashMap.put("123","张三");
         hashMap.put("456","李四");
         hashMap.put("123","王二");
         System.out.println("hashMap = " + hashMap);
         /**
-         * HashMap 底层结构在jdk7之前是【数组+链表】，jdk8之后是【数组+链表+红黑树】 底层存储节点类型为HashMap$Node
+         * HashMap 底层结构在jdk1.8之前是【数组+链表】，jdk1.8之后是【数组+链表+红黑树】 底层存储节点类型为HashMap$Node
          * 扩容机制与hashSet一致
          * 当变成红黑树之后 如果减去元素至不符合树的条件时 会“剪枝” 即退化成链表
          * HashMap是线程不安全的 键值可以为null
@@ -156,5 +163,27 @@ public class HashMap_ {
          *      }
          *
          */
+    }
+}
+
+class A{
+
+    private int a;
+
+    public A(int a) {
+        this.a = a;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        A a1 = (A) o;
+        return Objects.equals(a, a1.a);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
     }
 }
